@@ -181,5 +181,116 @@ th {
   width: 1200px;
   margin: 0 auto;
 }
+.services * {
+  box-sizing: border-box;
+}
+.services__container {
+  *zoom: 1;
+  padding: 10px 0;
+}
+.services__container:before,
+.services__container:after {
+  content: "";
+  display: table;
+}
+.services__container:after {
+  clear: both;
+}
+.services__area {
+  float: left;
+  width: 380px;
+  height: 380px;
+  margin-right: 10px;
+}
+.services__area-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  *zoom: 1;
+}
+.services__area-list:before,
+.services__area-list:after {
+  content: "";
+  display: table;
+}
+.services__area-list:after {
+  clear: both;
+}
+.services__area-item {
+  float: left;
+  width: 126.66666667px;
+  height: 126.66666667px;
+  background: orange;
+  position: relative;
+  border: solid 1px #996300;
+}
+.services__available {
+  width: 480px;
+  height: 380px;
+  float: left;
+}
+.services__available-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  *zoom: 1;
+}
+.services__available-list:before,
+.services__available-list:after {
+  content: "";
+  display: table;
+}
+.services__available-list:after {
+  clear: both;
+}
+.services__available-item {
+  float: left;
+  width: 120px;
+  height: 126.66666667px;
+  background: brown;
+  border: solid 1px #541515;
+}
+.services__info {
+  width: 600px;
+  padding: 10px 0;
+}
+.services__info-gallery {
+  padding: 10px 0;
+}
+.services__form-row {
+  display: inline-block;
+  background: #edf1f6;
+  padding: 20px 55px;
+  *zoom: 1;
+}
+.services__form-row:before,
+.services__form-row:after {
+  content: "";
+  display: table;
+}
+.services__form-row:after {
+  clear: both;
+}
+.services__input {
+  height: 45px;
+  line-height: 45px;
+  padding: 0 20px;
+  float: left;
+  margin-right: 10px;
+}
+.services__button {
+  border: none;
+  background: #385bae;
+  color: #fff;
+  line-height: 45px;
+  text-align: center;
+  padding: 0 80px;
+  -webkit-transition: opacity .3s;
+  transition: opacity .3s;
+  float: left;
+}
+.services__button:hover {
+  opacity: .8;
+}
 
 /*# sourceMappingURL=../css/services-styles.css.map */
