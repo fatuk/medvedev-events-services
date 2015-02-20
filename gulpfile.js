@@ -92,7 +92,7 @@ gulp.task('watch', function () {
  * Less
  ******************************/
 gulp.task('less', function () {
-	gulp.src('app/less/app.less')
+	gulp.src('app/less/services-styles.less')
 		.pipe(sourcemaps.init())
 		.pipe(less())
 		.pipe(autoprefixer({

@@ -1,6 +1,6 @@
-body {
-  -webkit-transition: all .3s;
-  transition: all .3s;
+.container {
+  width: 1200px;
+  margin: 0 auto;
 }
 
 /*# sourceMappingURL=../css/app.css.map */
