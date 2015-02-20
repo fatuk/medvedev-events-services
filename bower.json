@@ -19,6 +19,7 @@
   ],
   "overrides": {},
   "dependencies": {
-    "backbone": "~1.1.2"
+    "backbone": "~1.1.2",
+    "mustache": "~1.1.0"
   }
 }

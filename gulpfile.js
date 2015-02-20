@@ -14,7 +14,6 @@ var handlebars = require('gulp-compile-handlebars');
 var rename = require('gulp-rename');
 
 var buildPath = 'build';
-var templateData = require('./app/data/data.json');
 
 
 /******************************
@@ -22,7 +21,6 @@ var templateData = require('./app/data/data.json');
  ******************************/
 gulp.task('default', [
 	'browser-sync',
-	'handlebars',
 	'pluginsConcat',
 	'jsConcat',
 	'less',
@@ -34,36 +32,11 @@ gulp.task('default', [
  ******************************/
 gulp.task('build', [
 	'browser-sync',
-	'handlebars',
 	'pluginsConcat',
 	'jsConcat',
 	'less-min',
 	'watch'
 ]);
-
-/******************************
- * Handlebars
- ******************************/
-gulp.task('handlebars', function () {
-	gulp.src('app/templates/*.handlebars')
-		.pipe(handlebars(templateData, {
-			ignorePartials: true, //ignores the unknown partials
-			partials: {
-				footer: '<footer>the end</footer>'
-			},
-			batch: ['./app/templates/partials'],
-			helpers: {
-				capitals: function (str) {
-					return str.fn(this).toUpperCase();
-				}
-			}
-		}))
-		.pipe(rename({
-			extname: '.html'
-		}))
-		.pipe(gulp.dest('./app'))
-		.pipe(gulp.dest('./build'));
-});
 
 /******************************
  * JS plugins
@@ -95,7 +68,6 @@ gulp.task('jsConcat', function () {
 gulp.task('browser-sync', function () {
 	var files = [
 		'app/**/*.html',
-		'app/templates/**/*.handlebars',
 		'app/js/**/*.js',
 		'app/css/**/*.css'
 	];
@@ -114,7 +86,6 @@ gulp.task('browser-sync', function () {
 gulp.task('watch', function () {
 	gulp.watch('app/less/*.less', ['less']);
 	gulp.watch('app/js/src/**/*.js', ['jsConcat']);
-	gulp.watch('app/templates/**/*.handlebars', ['handlebars']);
 });
 
 /******************************
