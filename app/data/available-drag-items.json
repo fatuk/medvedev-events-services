@@ -1,0 +1,27 @@
+[{
+	"icon": "actor",
+	"role": "Актер",
+	"thumb": "thumb.jpg",
+	"name": "Алексей Морозов",
+	"description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus quisquam laborum sint in eius, autem officia facilis! Veniam explicabo molestiae impedit quam tempora, repellendus adipisci quas cumque fugiat placeat officia?",
+	"gallery": [{
+		"thumb": "gal-thumb.jpg",
+		"full": "gal-full.jpg"
+	}, {
+		"thumb": "gal-thumb.jpg",
+		"full": "gal-full.jpg"
+	}]
+}, {
+	"icon": "dj",
+	"role": "Dj",
+	"thumb": "thumb.jpg",
+	"name": "Николай Аксенов",
+	"description": "Кручу пласты и в ус не дуюLorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus quisquam laborum sint in eius, autem officia facilis! Veniam explicabo molestiae impedit quam tempora, repellendus adipisci quas cumque fugiat placeat officia?",
+	"gallery": [{
+		"thumb": "gal-thumb.jpg",
+		"full": "gal-full.jpg"
+	}, {
+		"thumb": "gal-thumb.jpg",
+		"full": "gal-full.jpg"
+	}]
+}]

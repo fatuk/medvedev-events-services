@@ -1,1 +1,0 @@
-{"version":3,"sources":["layout.less","app.css"],"names":[],"mappings":"AAAA;EACC,eAAA;EACA,gBAAA;ECCA","file":"app.css","sourcesContent":[".container {\n\twidth: 1200px;\n\tmargin: 0 auto;\n}\n",".container {\n  width: 1200px;\n  margin: 0 auto;\n}\n"],"sourceRoot":"/source/"}
