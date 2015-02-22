@@ -1,27 +1,155 @@
 [{
-	"icon": "actor",
-	"role": "Актер",
-	"thumb": "thumb.jpg",
+	"id": 1,
+	"icon": "leader",
+	"role": "Ведущий",
+	"thumb": "http://lorempixel.com/330/330/people",
 	"name": "Алексей Морозов",
-	"description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus quisquam laborum sint in eius, autem officia facilis! Veniam explicabo molestiae impedit quam tempora, repellendus adipisci quas cumque fugiat placeat officia?",
+	"description": "Веду себя и всех за собой. Любой ценой расщекочу грусть-тоску. Для всех чужих свой в доску",
 	"gallery": [{
-		"thumb": "gal-thumb.jpg",
-		"full": "gal-full.jpg"
+		"thumb": "http://lorempixel.com/128/128/nightalife",
+		"full": "http://lorempixel.com/800/600/nightlife"
 	}, {
-		"thumb": "gal-thumb.jpg",
-		"full": "gal-full.jpg"
+		"thumb": "http://lorempixel.com/128/128/nightlife",
+		"full": "http://lorempixel.com/800/600/nightlife"
 	}]
 }, {
+	"id": 2,
+	"icon": "photographer",
+	"role": "Фотограф",
+	"thumb": "http://lorempixel.com/330/330/people",
+	"name": "Николай Аксенов",
+	"description": "Фотографирую с головы до пят. Могу сделать снимоу ауры",
+	"gallery": [{
+		"thumb": "http://lorempixel.com/128/128/nightlife",
+		"full": "http://lorempixel.com/800/600/nightlife"
+	}, {
+		"thumb": "http://lorempixel.com/128/128/nightlife",
+		"full": "http://lorempixel.com/800/600/nightlife"
+	}]
+}, {
+	"id": 3,
+	"icon": "team-building",
+	"role": "Тим-билдинг",
+	"thumb": "http://lorempixel.com/330/330/people",
+	"name": "Павел Мартин",
+	"description": "Кручу пласты и в ус не дую. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus quisquam laborum sint in eius, autem officia facilis! Veniam explicabo molestiae impedit quam tempora, repellendus adipisci quas cumque fugiat placeat officia?",
+	"gallery": [{
+		"thumb": "http://lorempixel.com/128/128/nightlife",
+		"full": "http://lorempixel.com/800/600/nightlife"
+	}, {
+		"thumb": "http://lorempixel.com/128/128/nightlife",
+		"full": "http://lorempixel.com/800/600/nightlife"
+	}]
+}, {
+	"id": 4,
+	"icon": "actor",
+	"role": "Артист",
+	"thumb": "http://lorempixel.com/330/330/people",
+	"name": "Сева Аистов",
+	"description": "Кручу пласты и в ус не дую. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus quisquam laborum sint in eius, autem officia facilis! Veniam explicabo molestiae impedit quam tempora, repellendus adipisci quas cumque fugiat placeat officia?",
+	"gallery": [{
+		"thumb": "http://lorempixel.com/128/128/nightlife",
+		"full": "http://lorempixel.com/800/600/nightlife"
+	}, {
+		"thumb": "http://lorempixel.com/128/128/nightlife",
+		"full": "http://lorempixel.com/800/600/nightlife"
+	}]
+}, {
+	"id": 5,
 	"icon": "dj",
 	"role": "Dj",
-	"thumb": "thumb.jpg",
-	"name": "Николай Аксенов",
-	"description": "Кручу пласты и в ус не дуюLorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus quisquam laborum sint in eius, autem officia facilis! Veniam explicabo molestiae impedit quam tempora, repellendus adipisci quas cumque fugiat placeat officia?",
+	"thumb": "http://lorempixel.com/330/330/people",
+	"name": "Светлана Купчина",
+	"description": "Кручу пласты и в ус не дую. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus quisquam laborum sint in eius, autem officia facilis! Veniam explicabo molestiae impedit quam tempora, repellendus adipisci quas cumque fugiat placeat officia?",
 	"gallery": [{
-		"thumb": "gal-thumb.jpg",
-		"full": "gal-full.jpg"
+		"thumb": "http://lorempixel.com/128/128/nightlife",
+		"full": "http://lorempixel.com/800/600/nightlife"
 	}, {
-		"thumb": "gal-thumb.jpg",
-		"full": "gal-full.jpg"
+		"thumb": "http://lorempixel.com/128/128/nightlife",
+		"full": "http://lorempixel.com/800/600/nightlife"
+	}]
+}, {
+	"id": 6,
+	"icon": "director",
+	"role": "Режиссер",
+	"thumb": "http://lorempixel.com/330/330/people",
+	"name": "Вероника Жбенц",
+	"description": "Кручу пласты и в ус не дую. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus quisquam laborum sint in eius, autem officia facilis! Veniam explicabo molestiae impedit quam tempora, repellendus adipisci quas cumque fugiat placeat officia?",
+	"gallery": [{
+		"thumb": "http://lorempixel.com/128/128/nightlife",
+		"full": "http://lorempixel.com/800/600/nightlife"
+	}, {
+		"thumb": "http://lorempixel.com/128/128/nightlife",
+		"full": "http://lorempixel.com/800/600/nightlife"
+	}]
+}, {
+	"id": 7,
+	"icon": "actor",
+	"role": "Артист",
+	"thumb": "http://lorempixel.com/330/330/people",
+	"name": "Тарас Чучвага",
+	"description": "Кручу пласты и в ус не дую. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus quisquam laborum sint in eius, autem officia facilis! Veniam explicabo molestiae impedit quam tempora, repellendus adipisci quas cumque fugiat placeat officia?",
+	"gallery": [{
+		"thumb": "http://lorempixel.com/128/128/nightlife",
+		"full": "http://lorempixel.com/800/600/nightlife"
+	}, {
+		"thumb": "http://lorempixel.com/128/128/nightlife",
+		"full": "http://lorempixel.com/800/600/nightlife"
+	}]
+}, {
+	"id": 8,
+	"icon": "musician",
+	"role": "Музыканты",
+	"thumb": "http://lorempixel.com/330/330/people",
+	"name": "Елизавета Мурдина",
+	"description": "Кручу пласты и в ус не дую. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus quisquam laborum sint in eius, autem officia facilis! Veniam explicabo molestiae impedit quam tempora, repellendus adipisci quas cumque fugiat placeat officia?",
+	"gallery": [{
+		"thumb": "http://lorempixel.com/128/128/nightlife",
+		"full": "http://lorempixel.com/800/600/nightlife"
+	}, {
+		"thumb": "http://lorempixel.com/128/128/nightlife",
+		"full": "http://lorempixel.com/800/600/nightlife"
+	}]
+}, {
+	"id": 9,
+	"icon": "decorator",
+	"role": "Декоратор",
+	"thumb": "http://lorempixel.com/330/330/people",
+	"name": "Сергей Краснов",
+	"description": "Кручу пласты и в ус не дую. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus quisquam laborum sint in eius, autem officia facilis! Veniam explicabo molestiae impedit quam tempora, repellendus adipisci quas cumque fugiat placeat officia?",
+	"gallery": [{
+		"thumb": "http://lorempixel.com/128/128/nightlife",
+		"full": "http://lorempixel.com/800/600/nightlife"
+	}, {
+		"thumb": "http://lorempixel.com/128/128/nightlife",
+		"full": "http://lorempixel.com/800/600/nightlife"
+	}]
+}, {
+	"id": 10,
+	"icon": "coordinator",
+	"role": "Координатор",
+	"thumb": "http://lorempixel.com/330/330/people",
+	"name": "Максим Бердник",
+	"description": "Кручу пласты и в ус не дую. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus quisquam laborum sint in eius, autem officia facilis! Veniam explicabo molestiae impedit quam tempora, repellendus adipisci quas cumque fugiat placeat officia?",
+	"gallery": [{
+		"thumb": "http://lorempixel.com/128/128/nightlife",
+		"full": "http://lorempixel.com/800/600/nightlife"
+	}, {
+		"thumb": "http://lorempixel.com/128/128/nightlife",
+		"full": "http://lorempixel.com/800/600/nightlife"
+	}]
+}, {
+	"id": 11,
+	"icon": "actor",
+	"role": "Артист",
+	"thumb": "http://lorempixel.com/330/330/people",
+	"name": "Морель Адгиа",
+	"description": "Кручу пласты и в ус не дую. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus quisquam laborum sint in eius, autem officia facilis! Veniam explicabo molestiae impedit quam tempora, repellendus adipisci quas cumque fugiat placeat officia?",
+	"gallery": [{
+		"thumb": "http://lorempixel.com/128/128/nightlife",
+		"full": "http://lorempixel.com/800/600/nightlife"
+	}, {
+		"thumb": "http://lorempixel.com/128/128/nightlife",
+		"full": "http://lorempixel.com/800/600/nightlife"
 	}]
 }]

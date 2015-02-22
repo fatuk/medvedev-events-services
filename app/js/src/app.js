@@ -20,14 +20,14 @@ $(function () {
 
 	// Drag view
 	App.Views.Drag = Backbone.View.extend({
-		el: '.js-dragArea',
+		el: '.js-drop',
 		initialize: function () {
 
 		}
 	});
 	// Drag item view
 	App.Views.DragItem = Backbone.View.extend({
-		el: '.js-dragArea',
+		el: '.js-drop',
 		initialize: function () {
 
 		}
@@ -35,7 +35,7 @@ $(function () {
 
 	// Available drag view
 	App.Views.AvailableDrag = Backbone.View.extend({
-		el: '.js-availableDragArea',
+		el: '.js-drag',
 		initialize: function () {
 			this.collection.on('reset', function () {
 				this.render();
@@ -58,14 +58,17 @@ $(function () {
 
 		},
 		render: function () {
-			var self = this;
+			var self = this,
+				$empty = $('.js-dragEmpty');
 
 			this.$el.html('');
+			$empty.html('');
 			this.collection.each(function (availableItem, index) {
 				var availableDragItem = new App.Views.AvailableDragItem({
 					model: availableItem
 				});
 				this.$el.append(availableDragItem.$el.data('serviceName', availableItem.get('name')));
+				$empty.append('<li class="services__available-empty-item"></li>');
 			}, this);
 
 			// Drag init
@@ -76,7 +79,7 @@ $(function () {
 				/*start: function () {
 					console.log(this);
 				},*/
-				droppable: '.js-dragArea',
+				droppable: '.js-drop',
 				stop: function (event, object) {
 					var $item = $(object.el),
 						intersected = this.activeDropRegions.length;
@@ -103,6 +106,8 @@ $(function () {
 		render: function () {
 			var rendered = Mustache.render(this.template, this.model.toJSON());
 			this.$el.html(rendered);
+			this.$el.addClass('services__available-item_' + this.model.get('icon'));
+			this.$el.attr('id', 'dragItem-' + this.model.get('id'));
 			return this;
 		}
 	});

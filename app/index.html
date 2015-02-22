@@ -3,121 +3,50 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Medvedev Events - Сервисы</title>
+	<link rel="stylesheet" href="http://medvedevevents.ru/wp-content/plugins/contact-form-7/includes/css/styles.css?ver=3.5.4">
+	<link rel="stylesheet" href="http://medvedevevents.ru/wp-content/themes/medvedevevents/inside.css">
 	<link rel="stylesheet" href="css/services-styles.css">
 </head>
 <body>
 	<!-- Services -->
 	<div class="container">
-		<div class="js-services services">
-			<h2 class="services__title">
+		<div class="js-services services block">
+			<h2 class="services__title post-title">
 				Команда
 			</h2>
-			<h3 class="services__subtitle">
+			<p class="services__subtitle">
 				Профессиональная реализация Вашего события
-			</h3>
+			</p>
+			<h3 class="services__name js-selectedItemName">Dj Алексей Морозов</h3>
 			<!-- Tiles -->
 			<div class="services__container">
 				<!-- Area -->
-				<div class="services__area js-dragArea">
+				<div class="services__area js-drop">
 					<ul class="services__area-list">
-						<li class="services__area-item">
-							item
-						</li>
-						<li class="services__area-item">
-							item
-						</li>
-						<li class="services__area-item">
-							item
-						</li>
-						<li class="services__area-item">
-							item
-						</li>
-						<li class="services__area-item">
-							item
-						</li>
-						<li class="services__area-item">
-							item
-						</li>
-						<li class="services__area-item">
-							item
-						</li>
-						<li class="services__area-item">
-							item
-						</li>
-						<li class="services__area-item">
-							item
-						</li>
+						<li class="services__area-item"></li>
+						<li class="services__area-item"></li>
+						<li class="services__area-item"></li>
+						<li class="services__area-item"></li>
+						<li class="services__area-item"></li>
+						<li class="services__area-item"></li>
+						<li class="services__area-item"></li>
+						<li class="services__area-item"></li>
+						<li class="services__area-item"></li>
 					</ul>
 				</div>
 				<!-- Available -->
-				<div class="services__available js-availableDragArea">
-					<ul class="services__available-list">
-						<li class="services__available-item">
-							<i class="services__available-icon services__available-icon_leading"></i>
-							<h3 class="services__available-title">
-								Ведущий
-							</h3>
-						</li>
-						<li class="services__available-item">
-							<i class="services__available-icon services__available-icon_photographer"></i>
-							<h3 class="services__available-title">
-								Ведущий
-							</h3>
-						</li>
-						<li class="services__available-item">
-							<i class="services__available-icon services__available-icon_team-building"></i>
-							<h3 class="services__available-title">
-								Ведущий
-							</h3>
-						</li>
-						<li class="services__available-item">
-							<i class="services__available-icon services__available-icon_actor"></i>
-							<h3 class="services__available-title">
-								Ведущий
-							</h3>
-						</li>
-						<li class="services__available-item">
-							<i class="services__available-icon services__available-icon_dj"></i>
-							<h3 class="services__available-title">
-								Ведущий
-							</h3>
-						</li>
-						<li class="services__available-item">
-							<i class="services__available-icon services__available-icon_director"></i>
-							<h3 class="services__available-title">
-								Ведущий
-							</h3>
-						</li>
-						<li class="services__available-item">
-							<i class="services__available-icon services__available-icon_musician"></i>
-							<h3 class="services__available-title">
-								Ведущий
-							</h3>
-						</li>
-						<li class="services__available-item">
-							<i class="services__available-icon services__available-icon_decorator"></i>
-							<h3 class="services__available-title">
-								Ведущий
-							</h3>
-						</li>
-						<li class="services__available-item">
-							<i class="services__available-icon services__available-icon_coordinator"></i>
-							<h3 class="services__available-title">
-								Ведущий
-							</h3>
-						</li>
-						<li class="services__available-item">
-							<i class="services__available-icon services__available-icon_actor"></i>
-							<h3 class="services__available-title">
-								Ведущий
-							</h3>
-						</li>
+				<div class="services__available">
+					<ul class="services__available-list js-drag">
+						<!-- Drag items go here -->
+					</ul>
+					<ul class="services__available-empty-list js-dragEmpty">
+						<li class="services__available-empty-item"></li>
 					</ul>
 				</div>
 			</div>
 			<!-- Info -->
 			<div class="services__info js-itemInfo">
-				<p class="services__info-text">
+				<p class="services__info-text js-itemInfoText">
 					Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quas veritatis tenetur voluptas consectetur dolores unde sint reiciendis eum fuga eveniet!
 				</p>
 				<!-- Gallery -->
@@ -169,12 +98,14 @@
 		type="text/mustache"
 		id="availableDragItemTemplate"
 		data-url="data/available-drag-items.json">
-		<div id="yes-drop" class="draggable drag-drop"> #yes-drop </div>
-		<img src="{{thumb}}" alt="" class="services__available-bg">
-		<i class="services__available-icon services__available-icon_{{icon}}"></i>
-		<h3 class="services__available-title">
-			{{role}}
-		</h3>
+		<div class="services__available-inner">
+			<img src="{{thumb}}?{{id}}" alt="" class="services__available-bg">
+			<div class="services__available-item-overlay"></div>
+			<i class="services__available-icon"></i>
+			<div class="services__available-title">
+				{{role}}
+			</div>
+		</div>
 	</script>
 
 	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
