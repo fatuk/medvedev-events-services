@@ -90,10 +90,25 @@
 	<script
 		type="text/mustache"
 		id="selectedItemAvatarTemplate">
-		<div class="services__selected-avatar">
-			<div class="services__selected-img"></div>
-			<div class="services__selected-add"></div>
-			<div class="services__selected-close"></div>
+		<div class="services__selected-avatar js-avatar">
+		{{name}}
+			<div class="services__selected-img" style="background: url({{thumb}}?{{id}});-webkit-background-size: cover;background-size: cover;"></div>
+			<div class="services__selected-controls">
+				<!-- Add button -->
+				<div class="services__selected-add js-addBtn">
+					<i class="icon"></i>
+					<span class="services__selected-text">Добавить</span>
+				</div>
+				<!-- Remove button -->
+				<div class="services__selected-remove js-removeBtn">
+					<i class="icon"></i>
+					<span class="services__selected-text">Убрать</span>
+				</div>
+				<!-- Close button -->
+				<div class="services__selected-close js-avatarClose">
+					<i class="icon"></i>
+				</div>
+			</div>
 		</div>
 	</script>
 

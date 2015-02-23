@@ -21,6 +21,29 @@ $(function () {
 	// Drag view
 	App.Views.Drop = Backbone.View.extend({
 		el: '.js-drop',
+		events: {
+			'click .js-avatarClose': 'closeAvatar',
+			'click .js-dropItem': 'click'
+		},
+		click: function (e) {
+			var $target = $(e.currentTarget),
+				infoTemplate = $('#selectedItemAvatarTemplate').html(),
+				currentItem = this.collection.findWhere({
+					id: $target.data('id')
+				});
+			rendered = Mustache.render(infoTemplate, currentItem.toJSON());
+			this.$el.find('.js-avatar').remove();
+			$('.js-dropItem').removeClass('active');
+			$target.addClass('active');
+			this.$el.append(rendered);
+			this.$el.find('.js-addBtn').hide();
+			this.$el.find('.js-removeBtn').show();
+		},
+		closeAvatar: function () {
+			$('.js-dragItem').removeClass('active');
+			$('.js-dropItem').removeClass('active');
+			this.$el.find('.js-avatar').remove();
+		},
 		initialize: function () {
 			this.collection.on('add', function () {
 				this.render();
@@ -71,6 +94,7 @@ $(function () {
 			this.$el.html(rendered);
 			this.$el.addClass('services__item_' + this.model.get('icon'));
 			this.$el.attr('id', 'dropItem-' + this.model.get('id'));
+			this.$el.data('id', this.model.get('id'));
 			return this;
 		}
 	});
@@ -80,9 +104,8 @@ $(function () {
 		el: '.js-drag',
 		events: {
 			'mousedown .js-dragItem': 'mousedown',
-			'mouseup .js-dragItem': 'mouseup',
-			'mouseout .js-dragItem': 'mouseout',
-			'click .js-dragItem': 'click'
+			'mouseup .js-dragItem:not(.pep-start)': 'click',
+			'mouseout .js-dragItem': 'mouseout'
 		},
 		initialize: function () {
 			this.collection.on('reset', function () {
@@ -91,15 +114,25 @@ $(function () {
 		},
 		mousedown: function (e) {
 			var $target = $(e.currentTarget);
-			$target.addClass('click');
 		},
 		mouseup: function (e) {
 			var $target = $(e.currentTarget);
-			$target.removeClass('click');
 		},
 		click: function (e) {
-			var $target = $(e.currentTarget);
-			// $target.addClass('active');
+			var $target = $(e.currentTarget),
+				infoTemplate = $('#selectedItemAvatarTemplate').html(),
+				currentItem = this.collection.findWhere({
+					id: $target.data('id')
+				}),
+				rendered = Mustache.render(infoTemplate, currentItem.toJSON());
+
+			$('.js-drop').find('.js-avatar').remove();
+			$('.js-dragItem').removeClass('active');
+			$target.addClass('active');
+			$('.js-drop').append(rendered);
+			$('.js-drop').find('.js-removeBtn').hide();
+			$('.js-drop').find('.js-addBtn').show();
+
 		},
 		saveSelectedItem: function ($item) {
 			var itemId = $item.data('id'),
@@ -114,7 +147,7 @@ $(function () {
 
 			$('.js-selected').html('');
 			dropItems.each(function (item) {
-				$('.js-selected').append('<li>' + item.get('name') + '</li>');
+				$('.js-selected').append('<li>' + item.get('role') + ' ' + item.get('name') + '</li>');
 			});
 		},
 		removeSelectedItem: function () {
@@ -140,18 +173,6 @@ $(function () {
 					// console.log('initiate');
 				},
 				droppable: '.js-drop',
-				initiate: function () {
-					// console.log(this);
-				},
-				start: function () {
-					// console.log(this);
-				},
-				drag: function () {
-					// $(this.el).addClass('click');
-				},
-				rest: function () {
-					// $('.js-dragItem').removeClass('click');
-				},
 				stop: function (event, object) {
 					var $item = $(object.el),
 						intersected = this.activeDropRegions.length;
@@ -160,6 +181,7 @@ $(function () {
 					if (intersected) {
 						self.saveSelectedItem($item);
 					}
+
 				},
 				revert: true,
 				debug: true,
