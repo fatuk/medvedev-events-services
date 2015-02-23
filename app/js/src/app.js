@@ -60,16 +60,16 @@ $(function () {
 	});
 	// Drag item view
 	App.Views.DropItem = Backbone.View.extend({
-		template: $('#availableDragItemTemplate').html(),
+		template: $('#dragItemTemplate').html(),
 		tagName: 'li',
-		className: 'services__available-item js-dropItem',
+		className: 'services__item js-dropItem',
 		initialize: function () {
 			this.render();
 		},
 		render: function () {
 			var rendered = Mustache.render(this.template, this.model.toJSON());
 			this.$el.html(rendered);
-			this.$el.addClass('services__available-item_' + this.model.get('icon'));
+			this.$el.addClass('services__item_' + this.model.get('icon'));
 			this.$el.attr('id', 'dropItem-' + this.model.get('id'));
 			return this;
 		}
@@ -110,7 +110,7 @@ $(function () {
 					model: availableItem
 				});
 				this.$el.append(availableDragItem.$el.data('serviceName', availableItem.get('name')));
-				$empty.append('<li class="services__available-empty-item"></li>');
+				$empty.append('<li class="services__empty-item"></li>');
 			}, this);
 
 			// Drag init
@@ -136,16 +136,16 @@ $(function () {
 	});
 	// Available drag item view
 	App.Views.AvailableDragItem = Backbone.View.extend({
-		template: $('#availableDragItemTemplate').html(),
+		template: $('#dragItemTemplate').html(),
 		tagName: 'li',
-		className: 'services__available-item js-dragItem',
+		className: 'services__item js-dragItem',
 		initialize: function () {
 			this.render();
 		},
 		render: function () {
 			var rendered = Mustache.render(this.template, this.model.toJSON());
 			this.$el.html(rendered);
-			this.$el.addClass('services__available-item_' + this.model.get('icon'));
+			this.$el.addClass('services__item_' + this.model.get('icon'));
 			this.$el.attr('id', 'dragItem-' + this.model.get('id'));
 			return this;
 		}
@@ -160,7 +160,7 @@ $(function () {
 
 	// Available items
 	App.Collections.AvailableItems = Backbone.Collection.extend({
-		url: $('#availableDragItemTemplate').data('url'),
+		url: $('#dragItemTemplate').data('url'),
 		initialize: function () {
 			this.fetch({
 				reset: true

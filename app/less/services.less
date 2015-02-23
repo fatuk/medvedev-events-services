@@ -27,7 +27,7 @@
 		.clearfix();
 		padding: @base 0;
 	}
-	&__area {
+	&__drop {
 		float: left;
 		width: 356px;
 		height: 356px;
@@ -42,7 +42,7 @@
 		border-radius: 3px;
 		position: relative;
 	}
-	&__area-empty-list {
+	&__empty-list {
 		position: absolute;
 		left: 0;
 		top: 0;
@@ -50,23 +50,19 @@
 		padding: 0;
 		margin: 0;
 		.clearfix();
+
 	}
-	&__area-empty-item {
+	&__empty-item {
 		float: left;
 		width: @base*11;
 		height: @base*11;
 		position: relative;
 		border: solid 1px #fff;
 		margin: 0;
-		margin-right: 5px;
-		margin-bottom: 5px;
+		margin-right: @base;
+		margin-bottom: @base;
 	}
-	&__available {
-		width: 600px;
-		float: left;
-		position: relative;
-	}
-	&__available-empty-list {
+	&__list {
 		position: absolute;
 		left: 0;
 		top: 0;
@@ -76,130 +72,129 @@
 		.clearfix();
 		z-index: 1;
 	}
-	&__available-empty-item {
+	&__item {
 		float: left;
-		width: @base*11;
-		height: @base*11;
-		margin: 0;
-		margin-right: @base;
-		margin-bottom: @base;
-		background: url('../assets/img/selected.png') no-repeat;
-		background-size: cover;
-		border: solid 1px #9ABEE4;
-	}
-	&__available-list {
-		position: relative;
-		list-style: none;
-		padding: 0;
-		margin: 0;
-		z-index: 5;
-		.clearfix();
-	}
-	&__available-item {
-		float: left;
-		width: @base*11;
-		height: @base*11;
 		margin: 0;
 		margin-right: @base;
 		margin-bottom: @base;
 		&_leader {
-			.services__available-item-overlay {
+			.services__item-overlay {
 				background: @leader;
 			}
-			.services__available-icon {
+			.services__item-icon {
 				background: url('../assets/img/leader.png');
 				width: 49px;
 				height: 58px;
 			}
 		}
 		&_photographer {
-			.services__available-item-overlay {
+			.services__item-overlay {
 				background: @photo;
 			}
-			.services__available-icon {
+			.services__item-icon {
 				background: url('../assets/img/photographer.png');
 				width: 60px;
 				height: 43px;
 			}
 		}
 		&_team-building {
-			.services__available-item-overlay {
+			.services__item-overlay {
 				background: @team;
 			}
-			.services__available-icon {
+			.services__item-icon {
 				background: url('../assets/img/team-building.png');
 				width: 79px;
 				height: 79px;
 			}
 		}
 		&_actor {
-			.services__available-item-overlay {
+			.services__item-overlay {
 				background: @actor;
 			}
-			.services__available-icon {
+			.services__item-icon {
 				background: url('../assets/img/actor.png');
 				width: 78px;
 				height: 44px;
 			}
 		}
 		&_dj {
-			.services__available-item-overlay {
+			.services__item-overlay {
 				background: @dj;
 			}
-			.services__available-icon {
+			.services__item-icon {
 				background: url('../assets/img/dj.png');
 				width: 62px;
 				height: 62px;
 			}
 		}
 		&_director {
-			.services__available-item-overlay {
+			.services__item-overlay {
 				background: @director;
 			}
-			.services__available-icon {
+			.services__item-icon {
 				background: url('../assets/img/director.png');
 				width: 69px;
 				height: 63px;
 			}
 		}
 		&_musician {
-			.services__available-item-overlay {
+			.services__item-overlay {
 				background: @musician;
 			}
-			.services__available-icon {
+			.services__item-icon {
 				background: url('../assets/img/musician.png');
 				width: 72px;
 				height: 72px;
 			}
 		}
 		&_decorator {
-			.services__available-item-overlay {
+			.services__item-overlay {
 				background: @decorator;
 			}
-			.services__available-icon {
+			.services__item-icon {
 				background: url('../assets/img/decorator.png');
 				width: 71px;
 				height: 71px;
 			}
 		}
 		&_coordinator {
-			.services__available-item-overlay {
+			.services__item-overlay {
 				background: @coordinator;
 			}
-			.services__available-icon {
+			.services__item-icon {
 				background: url('../assets/img/coordinator.png');
 				width: 70px;
 				height: 75px;
 			}
 		}
-		&_selected {
+	}
+	&__item-inner {
+		width: @base*11;
+		height: @base*11;
+		position: relative;
+	}
+	&__drag {
+		width: 600px;
+		float: left;
+		position: relative;
+		.services__empty-item {
+			background: url('../assets/img/selected.png') no-repeat;
+			background-size: cover;
+			border: solid 1px #9ABEE4;
+		}
+		.services__list {
+			position: relative;
+			list-style: none;
+			padding: 0;
+			margin: 0;
+			z-index: 5;
+			.clearfix();
+		}
+		.services__item {
 
 		}
 	}
-	&__available-inner {
-		position: relative;
-	}
-	&__available-title {
+	&__item-title {
 		margin: 0;
 		position: absolute;
 		left: 0;
@@ -209,7 +204,7 @@
 		width: 100%;
 		text-align: center;
 	}
-	&__available-item-overlay {
+	&__item-overlay {
 		position: absolute;
 		left: 0;
 		top: 0;
@@ -217,17 +212,22 @@
 		height: 100%;
 		opacity: .7;
 	}
-	&__available-bg {
-		display: inline-block;
+	&__item-bg {
+		position: absolute;
+		left: 0;
+		top: 0;
 		width: 100%;
 		height: 100%;
 	}
-	&__available-icon {
+	&__item-icon {
 		position: absolute;
 		left: 50%;
 		top: 50%;
 		transform: translate(-50%, -60%);
 	}
+
+
+
 	&__info {
 		width: @base*60;
 		padding: @base 0;

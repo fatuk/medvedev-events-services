@@ -20,28 +20,28 @@
 			<h3 class="services__name js-selectedItemName">Dj Алексей Морозов</h3>
 			<!-- Tiles -->
 			<div class="services__container">
-				<!-- Area -->
-				<div class="services__area js-drop">
-					<ul class="services__area-empty-list">
-						<li class="services__area-empty-item"></li>
-						<li class="services__area-empty-item"></li>
-						<li class="services__area-empty-item"></li>
-						<li class="services__area-empty-item"></li>
-						<li class="services__area-empty-item"></li>
-						<li class="services__area-empty-item"></li>
-						<li class="services__area-empty-item"></li>
-						<li class="services__area-empty-item"></li>
-						<li class="services__area-empty-item"></li>
+				<!-- Drop -->
+				<div class="services__drop js-drop">
+					<ul class="services__empty-list">
+						<li class="services__empty-item"></li>
+						<li class="services__empty-item"></li>
+						<li class="services__empty-item"></li>
+						<li class="services__empty-item"></li>
+						<li class="services__empty-item"></li>
+						<li class="services__empty-item"></li>
+						<li class="services__empty-item"></li>
+						<li class="services__empty-item"></li>
+						<li class="services__empty-item"></li>
 					</ul>
 					<ul class="services__area-list js-selectedItems"></ul>
 				</div>
-				<!-- Available -->
-				<div class="services__available">
-					<ul class="services__available-list js-drag">
+				<!-- Drag -->
+				<div class="services__drag">
+					<ul class="services__list js-drag">
 						<!-- Drag items go here -->
 					</ul>
-					<ul class="services__available-empty-list js-dragEmpty">
-						<li class="services__available-empty-item"></li>
+					<ul class="services__empty-list js-dragEmpty">
+						<li class="services__empty-item"></li>
 					</ul>
 				</div>
 			</div>
@@ -112,16 +112,16 @@
 		// </div>
 	</script>
 
-	<!-- Available drag item template -->
+	<!-- Drag item template -->
 	<script
 		type="text/mustache"
-		id="availableDragItemTemplate"
+		id="dragItemTemplate"
 		data-url="data/available-drag-items.json">
-		<div class="services__available-inner">
+		<div class="services__item-inner">
 			<img src="{{thumb}}?{{id}}" alt="" class="services__available-bg">
-			<div class="services__available-item-overlay"></div>
-			<i class="services__available-icon"></i>
-			<div class="services__available-title">
+			<div class="services__item-overlay"></div>
+			<i class="services__item-icon"></i>
+			<div class="services__item-title">
 				{{role}}
 			</div>
 		</div>
