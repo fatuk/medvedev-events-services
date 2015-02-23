@@ -78,10 +78,28 @@ $(function () {
 	// Available drag view
 	App.Views.Drag = Backbone.View.extend({
 		el: '.js-drag',
+		events: {
+			'mousedown .js-dragItem': 'mousedown',
+			'mouseup .js-dragItem': 'mouseup',
+			'mouseout .js-dragItem': 'mouseout',
+			'click .js-dragItem': 'click'
+		},
 		initialize: function () {
 			this.collection.on('reset', function () {
 				this.render();
 			}, this);
+		},
+		mousedown: function (e) {
+			var $target = $(e.currentTarget);
+			$target.addClass('click');
+		},
+		mouseup: function (e) {
+			var $target = $(e.currentTarget);
+			$target.removeClass('click');
+		},
+		click: function (e) {
+			var $target = $(e.currentTarget);
+			// $target.addClass('active');
 		},
 		saveSelectedItem: function ($item) {
 			var itemId = $item.data('id'),
@@ -93,11 +111,6 @@ $(function () {
 				visibility: 'hidden'
 			});
 			dropItems.push(currentItem);
-
-			console.log($item, this.collection.findWhere({
-				id: itemId
-			}));
-
 
 			$('.js-selected').html('');
 			dropItems.each(function (item) {
@@ -127,6 +140,18 @@ $(function () {
 					// console.log('initiate');
 				},
 				droppable: '.js-drop',
+				initiate: function () {
+					// console.log(this);
+				},
+				start: function () {
+					// console.log(this);
+				},
+				drag: function () {
+					// $(this.el).addClass('click');
+				},
+				rest: function () {
+					// $('.js-dragItem').removeClass('click');
+				},
 				stop: function (event, object) {
 					var $item = $(object.el),
 						intersected = this.activeDropRegions.length;

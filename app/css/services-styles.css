@@ -255,10 +255,14 @@ th {
   clear: both;
 }
 .services__item {
+  width: 110px;
+  height: 110px;
   float: left;
   margin: 0;
   margin-right: 10px;
   margin-bottom: 10px;
+  cursor: pointer;
+  z-index: 1;
 }
 .services__item_leader .services__item-overlay {
   background: #93dfe2;
@@ -332,10 +336,21 @@ th {
   width: 70px;
   height: 75px;
 }
+.services__item.click1 {
+  cursor: move;
+  position: relative;
+  z-index: 10000 !important;
+}
+.services__item.pep-active {
+  cursor: move;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+  z-index: 10;
+}
 .services__item-inner {
   width: 110px;
   height: 110px;
   position: relative;
+  z-index: 1;
 }
 .services__drag {
   width: 600px;
@@ -365,6 +380,84 @@ th {
 }
 .services__drag .services__list:after {
   clear: both;
+}
+.services__drag .services__item {
+  position: absolute;
+}
+.services__drag .services__item:nth-child(1) {
+  left: 0px;
+}
+.services__drag .services__item:nth-child(2) {
+  left: 120px;
+}
+.services__drag .services__item:nth-child(3) {
+  left: 240px;
+}
+.services__drag .services__item:nth-child(4) {
+  left: 360px;
+}
+.services__drag .services__item:nth-child(5) {
+  left: 480px;
+}
+.services__drag .services__item:nth-child(6) {
+  left: 0px;
+  top: 120px;
+}
+.services__drag .services__item:nth-child(7) {
+  left: 120px;
+  top: 120px;
+}
+.services__drag .services__item:nth-child(8) {
+  left: 240px;
+  top: 120px;
+}
+.services__drag .services__item:nth-child(9) {
+  left: 360px;
+  top: 120px;
+}
+.services__drag .services__item:nth-child(10) {
+  left: 480px;
+  top: 120px;
+}
+.services__drag .services__item:nth-child(11) {
+  left: 0px;
+  top: 240px;
+}
+.services__drag .services__item:nth-child(12) {
+  left: 120px;
+  top: 240px;
+}
+.services__drag .services__item:nth-child(13) {
+  left: 240px;
+  top: 240px;
+}
+.services__drag .services__item:nth-child(14) {
+  left: 360px;
+  top: 240px;
+}
+.services__drag .services__item:nth-child(15) {
+  left: 480px;
+  top: 240px;
+}
+.services__drag .services__item:nth-child(16) {
+  left: 0px;
+  top: 360px;
+}
+.services__drag .services__item:nth-child(17) {
+  left: 120px;
+  top: 360px;
+}
+.services__drag .services__item:nth-child(18) {
+  left: 240px;
+  top: 360px;
+}
+.services__drag .services__item:nth-child(19) {
+  left: 360px;
+  top: 360px;
+}
+.services__drag .services__item:nth-child(20) {
+  left: 480px;
+  top: 360px;
 }
 .services__item-title {
   margin: 0;
