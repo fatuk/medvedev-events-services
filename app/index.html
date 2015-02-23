@@ -22,17 +22,18 @@
 			<div class="services__container">
 				<!-- Area -->
 				<div class="services__area js-drop">
-					<ul class="services__area-list">
-						<li class="services__area-item"></li>
-						<li class="services__area-item"></li>
-						<li class="services__area-item"></li>
-						<li class="services__area-item"></li>
-						<li class="services__area-item"></li>
-						<li class="services__area-item"></li>
-						<li class="services__area-item"></li>
-						<li class="services__area-item"></li>
-						<li class="services__area-item"></li>
+					<ul class="services__area-empty-list">
+						<li class="services__area-empty-item"></li>
+						<li class="services__area-empty-item"></li>
+						<li class="services__area-empty-item"></li>
+						<li class="services__area-empty-item"></li>
+						<li class="services__area-empty-item"></li>
+						<li class="services__area-empty-item"></li>
+						<li class="services__area-empty-item"></li>
+						<li class="services__area-empty-item"></li>
+						<li class="services__area-empty-item"></li>
 					</ul>
+					<ul class="services__area-list js-selectedItems"></ul>
 				</div>
 				<!-- Available -->
 				<div class="services__available">
@@ -85,12 +86,30 @@
 		</div>
 	</div>
 
-	<!-- Drag item template -->
+	<!-- Selected item avatar template -->
 	<script
 		type="text/mustache"
-		id="dragItemTemplate"
+		id="selectedItemAvatarTemplate">
+		<div class="services__selected-avatar">
+			<div class="services__selected-img"></div>
+			<div class="services__selected-add"></div>
+			<div class="services__selected-close"></div>
+		</div>
+	</script>
+
+	<!-- Drop item template -->
+	<script
+		type="text/mustache"
+		id="dropItemTemplate"
 		data-url="data/drag-items.json">
-		{{name}}
+		// <div class="services__drop-inner">
+		// 	<img src="{{thumb}}?{{id}}" alt="" class="services__drop-bg">
+		// 	<div class="services__drop-item-overlay"></div>
+		// 	<i class="services__drop-icon"></i>
+		// 	<div class="services__drop-title">
+		// 		{{role}}
+		// 	</div>
+		// </div>
 	</script>
 
 	<!-- Available drag item template -->

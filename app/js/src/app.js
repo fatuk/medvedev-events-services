@@ -19,17 +19,59 @@ $(function () {
 	});
 
 	// Drag view
-	App.Views.Drag = Backbone.View.extend({
+	App.Views.Drop = Backbone.View.extend({
 		el: '.js-drop',
 		initialize: function () {
+			this.collection.on('add', function () {
+				this.render();
+			}, this);
+		},
+		render: function () {
+			var self = this;
 
+			this.$el.find('.js-selectedItems').html('');
+			this.collection.each(function (dropItem, index) {
+				var dropItemView = new App.Views.DropItem({
+					model: dropItem
+				});
+				this.$el.find('.js-selectedItems').append(dropItemView.$el.data('serviceName', dropItem.get('name')));
+			}, this);
+
+			// Drag init
+			$('.js-dragItem').pep({
+				initiate: function () {
+					// console.log('initiate');
+				},
+				droppable: '.js-drop',
+				stop: function (event, object) {
+					var $item = $(object.el),
+						intersected = this.activeDropRegions.length;
+
+
+					if (intersected) {
+						self.saveSelectedItem($item);
+					}
+				},
+				revert: true,
+				debug: true,
+				place: false
+			});
 		}
 	});
 	// Drag item view
-	App.Views.DragItem = Backbone.View.extend({
-		el: '.js-drop',
+	App.Views.DropItem = Backbone.View.extend({
+		template: $('#availableDragItemTemplate').html(),
+		tagName: 'li',
+		className: 'services__available-item js-dropItem',
 		initialize: function () {
-
+			this.render();
+		},
+		render: function () {
+			var rendered = Mustache.render(this.template, this.model.toJSON());
+			this.$el.html(rendered);
+			this.$el.addClass('services__available-item_' + this.model.get('icon'));
+			this.$el.attr('id', 'dropItem-' + this.model.get('id'));
+			return this;
 		}
 	});
 
@@ -76,9 +118,6 @@ $(function () {
 				initiate: function () {
 					// console.log('initiate');
 				},
-				/*start: function () {
-					console.log(this);
-				},*/
 				droppable: '.js-drop',
 				stop: function (event, object) {
 					var $item = $(object.el),
@@ -143,5 +182,8 @@ $(function () {
 	var appView = new App.Views.App(),
 		availableItemsView = new App.Views.AvailableDrag({
 			collection: availableItems
+		}),
+		dropView = new App.Views.Drop({
+			collection: selectedItems
 		});
 });

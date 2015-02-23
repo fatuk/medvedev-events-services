@@ -30,6 +30,7 @@
 	&__area {
 		float: left;
 		width: 356px;
+		height: 356px;
 		border-image: url('../assets/img/lines.png') 6 round round;
 		background: url('../assets/img/drop-bg.png') #E1E9F1;
 		background-blend-mode: soft-light;
@@ -39,14 +40,18 @@
 		padding-bottom: 0;
 		margin-right: @base/2;
 		border-radius: 3px;
+		position: relative;
 	}
-	&__area-list {
+	&__area-empty-list {
+		position: absolute;
+		left: 0;
+		top: 0;
 		list-style: none;
 		padding: 0;
 		margin: 0;
 		.clearfix();
 	}
-	&__area-item {
+	&__area-empty-item {
 		float: left;
 		width: @base*11;
 		height: @base*11;
