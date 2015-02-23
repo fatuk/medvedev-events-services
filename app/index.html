@@ -33,7 +33,17 @@
 						<li class="services__empty-item"></li>
 						<li class="services__empty-item"></li>
 					</ul>
-					<ul class="services__area-list js-selectedItems"></ul>
+					<ul class="services__list js-selectedItems"></ul>
+					<!-- Form -->
+					<div class="services__form">
+						<div class="services__form-row">
+							<form action="#">
+								<input type="hidden" class="services__input" id="servicesList" name="services-list">
+								<input type="email" class="services__input" id="email" name="email" placeholder="Укажите Ваш e-mail">
+								<input type="submit" class="services__button" value="Пригласить">
+							</form>
+						</div>
+					</div>
 				</div>
 				<!-- Drag -->
 				<div class="services__drag">
@@ -53,16 +63,6 @@
 				<!-- Gallery -->
 				<div class="services__info-gallery">
 					gallery
-				</div>
-			</div>
-			<!-- Form -->
-			<div class="services__form">
-				<div class="services__form-row">
-					<form action="#">
-						<input type="text" class="services__input" id="servicesList" name="services-list" placeholder="Список сервисов">
-						<input type="email" class="services__input" id="email" name="email" placeholder="Укажите Ваш e-mail">
-						<input type="submit" class="services__button" value="Пригласить">
-					</form>
 				</div>
 			</div>
 			<!-- Short -->
@@ -95,21 +95,6 @@
 			<div class="services__selected-add"></div>
 			<div class="services__selected-close"></div>
 		</div>
-	</script>
-
-	<!-- Drop item template -->
-	<script
-		type="text/mustache"
-		id="dropItemTemplate"
-		data-url="data/drag-items.json">
-		// <div class="services__drop-inner">
-		// 	<img src="{{thumb}}?{{id}}" alt="" class="services__drop-bg">
-		// 	<div class="services__drop-item-overlay"></div>
-		// 	<i class="services__drop-icon"></i>
-		// 	<div class="services__drop-title">
-		// 		{{role}}
-		// 	</div>
-		// </div>
 	</script>
 
 	<!-- Drag item template -->

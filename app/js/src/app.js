@@ -76,7 +76,7 @@ $(function () {
 	});
 
 	// Available drag view
-	App.Views.AvailableDrag = Backbone.View.extend({
+	App.Views.Drag = Backbone.View.extend({
 		el: '.js-drag',
 		initialize: function () {
 			this.collection.on('reset', function () {
@@ -84,16 +84,24 @@ $(function () {
 			}, this);
 		},
 		saveSelectedItem: function ($item) {
+			var itemId = $item.data('id'),
+				currentItem = this.collection.findWhere({
+					id: itemId
+				});
+
 			$item.css({
 				visibility: 'hidden'
 			});
-			selectedItems.push({
-				serviceName: $item.data('serviceName')
-			});
-			console.log(selectedItems.models.length);
+			dropItems.push(currentItem);
+
+			console.log($item, this.collection.findWhere({
+				id: itemId
+			}));
+
+
 			$('.js-selected').html('');
-			selectedItems.each(function (item) {
-				$('.js-selected').append('<li>' + item.get('serviceName') + '</li>');
+			dropItems.each(function (item) {
+				$('.js-selected').append('<li>' + item.get('name') + '</li>');
 			});
 		},
 		removeSelectedItem: function () {
@@ -106,10 +114,10 @@ $(function () {
 			this.$el.html('');
 			$empty.html('');
 			this.collection.each(function (availableItem, index) {
-				var availableDragItem = new App.Views.AvailableDragItem({
+				var dragItem = new App.Views.DragItem({
 					model: availableItem
 				});
-				this.$el.append(availableDragItem.$el.data('serviceName', availableItem.get('name')));
+				this.$el.append(dragItem.$el.data('serviceName', availableItem.get('name')));
 				$empty.append('<li class="services__empty-item"></li>');
 			}, this);
 
@@ -135,7 +143,7 @@ $(function () {
 		}
 	});
 	// Available drag item view
-	App.Views.AvailableDragItem = Backbone.View.extend({
+	App.Views.DragItem = Backbone.View.extend({
 		template: $('#dragItemTemplate').html(),
 		tagName: 'li',
 		className: 'services__item js-dragItem',
@@ -147,6 +155,7 @@ $(function () {
 			this.$el.html(rendered);
 			this.$el.addClass('services__item_' + this.model.get('icon'));
 			this.$el.attr('id', 'dragItem-' + this.model.get('id'));
+			this.$el.data('id', this.model.get('id'));
 			return this;
 		}
 	});
@@ -176,14 +185,14 @@ $(function () {
 	 *  Initialize
 	 *
 	 ******************/
-	var availableItems = new App.Collections.AvailableItems(),
-		selectedItems = new App.Collections.SelectedItems();
+	var dragItems = new App.Collections.AvailableItems(),
+		dropItems = new App.Collections.SelectedItems();
 
 	var appView = new App.Views.App(),
-		availableItemsView = new App.Views.AvailableDrag({
-			collection: availableItems
+		dragView = new App.Views.Drag({
+			collection: dragItems
 		}),
 		dropView = new App.Views.Drop({
-			collection: selectedItems
+			collection: dropItems
 		});
 });
