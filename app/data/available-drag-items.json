@@ -6,11 +6,14 @@
 	"name": "Алексей Морозов",
 	"description": "Веду себя и всех за собой. Любой ценой расщекочу грусть-тоску. Для всех чужих свой в доску",
 	"gallery": [{
-		"thumb": "http://lorempixel.com/128/128/nightalife",
-		"full": "http://lorempixel.com/800/600/nightlife"
+		"thumb": "http://lorempixel.com/128/128/nightalife?1",
+		"full": "http://lorempixel.com/800/600/nightlife?1"
 	}, {
-		"thumb": "http://lorempixel.com/128/128/nightlife",
-		"full": "http://lorempixel.com/800/600/nightlife"
+		"thumb": "http://lorempixel.com/128/128/nightlife?2",
+		"full": "http://lorempixel.com/800/600/nightlife?2"
+	}, {
+		"thumb": "http://lorempixel.com/128/128/nightlife?5",
+		"full": "http://lorempixel.com/800/600/nightlife?5"
 	}]
 }, {
 	"id": 2,
@@ -20,11 +23,11 @@
 	"name": "Николай Аксенов",
 	"description": "Фотографирую с головы до пят. Могу сделать снимоу ауры",
 	"gallery": [{
-		"thumb": "http://lorempixel.com/128/128/nightlife",
-		"full": "http://lorempixel.com/800/600/nightlife"
+		"thumb": "http://lorempixel.com/128/128/nightlife?3",
+		"full": "http://lorempixel.com/800/600/nightlife?3"
 	}, {
-		"thumb": "http://lorempixel.com/128/128/nightlife",
-		"full": "http://lorempixel.com/800/600/nightlife"
+		"thumb": "http://lorempixel.com/128/128/nightlife?4",
+		"full": "http://lorempixel.com/800/600/nightlife?4"
 	}]
 }, {
 	"id": 3,

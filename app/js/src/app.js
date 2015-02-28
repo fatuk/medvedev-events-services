@@ -27,15 +27,21 @@ $(function () {
 		},
 		click: function (e) {
 			var $target = $(e.currentTarget),
-				infoTemplate = $('#selectedItemAvatarTemplate').html(),
+				infoAvatarTemplate = $('#selectedItemAvatarTemplate').html(),
+				infoTemplate = $('#infoTemplate').html(),
 				currentItem = this.collection.findWhere({
 					id: $target.data('id')
 				});
-			rendered = Mustache.render(infoTemplate, currentItem.toJSON());
+			renderedAvatar = Mustache.render(infoAvatarTemplate, currentItem.toJSON());
+			renderedInfo = Mustache.render(infoTemplate, currentItem.toJSON());
+
+			$('.js-itemInfo').html(renderedInfo);
+
 			this.$el.find('.js-avatar').remove();
 			$('.js-dropItem').removeClass('active');
 			$target.addClass('active');
-			this.$el.append(rendered);
+
+			this.$el.append(renderedAvatar);
 			this.$el.find('.js-addBtn').hide();
 			this.$el.find('.js-removeBtn').show();
 		},
@@ -169,14 +175,10 @@ $(function () {
 
 			// Drag init
 			$('.js-dragItem').pep({
-				initiate: function () {
-					// console.log('initiate');
-				},
 				droppable: '.js-drop',
 				stop: function (event, object) {
 					var $item = $(object.el),
 						intersected = this.activeDropRegions.length;
-
 
 					if (intersected) {
 						self.saveSelectedItem($item);

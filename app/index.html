@@ -5,7 +5,7 @@
 	<title>Medvedev Events - Сервисы</title>
 	<link rel="stylesheet" href="http://medvedevevents.ru/wp-content/plugins/contact-form-7/includes/css/styles.css?ver=3.5.4">
 	<link rel="stylesheet" href="http://medvedevevents.ru/wp-content/themes/medvedevevents/inside.css">
-	<link rel="stylesheet" href="css/services-styles.css">
+	<link rel="stylesheet" href="css/services-styles.css?v=2">
 </head>
 <body>
 	<!-- Services -->
@@ -56,15 +56,7 @@
 				</div>
 			</div>
 			<!-- Info -->
-			<div class="services__info js-itemInfo">
-				<p class="services__info-text js-itemInfoText">
-					Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quas veritatis tenetur voluptas consectetur dolores unde sint reiciendis eum fuga eveniet!
-				</p>
-				<!-- Gallery -->
-				<div class="services__info-gallery">
-					gallery
-				</div>
-			</div>
+			<div class="services__info js-itemInfo"><!-- Description goes here --></div>
 			<!-- Short -->
 			<div class="services__short">
 				<h3 class="services__short-title">
@@ -85,6 +77,20 @@
 			</div>
 		</div>
 	</div>
+
+	<!-- Info template -->
+	<script
+		type="text/mustache"
+		id="infoTemplate">
+		<div class="services__info">
+			<p class="services__info-text">
+				{{description}}
+			</p>
+			{{#gallery}}
+				<img src="{{thumb}}" alt="">
+			{{/gallery}}
+		</div>
+	</script>
 
 	<!-- Selected item avatar template -->
 	<script
@@ -118,7 +124,7 @@
 		id="dragItemTemplate"
 		data-url="data/available-drag-items.json">
 		<div class="services__item-inner">
-			<img src="{{thumb}}?{{id}}" alt="" class="services__available-bg">
+			<div class="services__item-bg" style="background: url({{thumb}}?{{id}});-webkit-background-size: cover;background-size: cover;"></div>
 			<div class="services__item-overlay"></div>
 			<i class="services__item-icon"></i>
 			<div class="services__item-title">
@@ -129,6 +135,6 @@
 
 	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 	<script src="js/plugins.min.js"></script>
-	<script src="js/app.js"></script>
+	<script src="js/app.js?v=1"></script>
 </body>
 </html>
