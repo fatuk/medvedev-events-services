@@ -24,7 +24,8 @@ $(function () {
 		events: {
 			'click .js-avatarClose': 'closeAvatar',
 			'click .js-dropItem': 'click',
-			'click .js-addBtn': 'addItem'
+			'click .js-addBtn': 'addItem',
+			'click .js-removeBtn': 'removeItem'
 		},
 		addItem: function (e) {
 			var $currentTarget = $(e.currentTarget),
@@ -32,11 +33,32 @@ $(function () {
 				$selectedItem = dragView.$el.find('#dragItem-' + id);
 
 			// Hide selected drop item
-			$selectedItem.hide();
+			$selectedItem.css({
+				poacity: 0,
+				visibility: 'hidden'
+			});
 			// Save drag selected item
 			dragView.saveSelectedItem($selectedItem);
 			// Close big avatar
 			this.closeAvatar();
+		},
+		removeItem: function (e) {
+			var $currentTarget = $(e.currentTarget),
+				id = $currentTarget.data('id'),
+				$selectedItem = this.$el.find('#dropItem-' + id),
+				$dragItem = dragView.$el.find('#dragItem-' + id);
+
+			// Remove selected item
+			$selectedItem.remove();
+			// Close big avatar
+			this.closeAvatar();
+			// Remove model from collection
+			dragView.removeSelectedItem($dragItem);
+			// Show drag item
+			$dragItem.css({
+				opacity: 1,
+				visibility: 'visible'
+			});
 		},
 		click: function (e) {
 			var $target = $(e.currentTarget),
@@ -166,6 +188,7 @@ $(function () {
 				});
 
 			$item.css({
+				opacity: 0,
 				visibility: 'hidden'
 			});
 			dropItems.push(currentItem);
@@ -175,8 +198,13 @@ $(function () {
 				$('.js-selected').append('<li>' + item.get('role') + ' ' + item.get('name') + '</li>');
 			});
 		},
-		removeSelectedItem: function () {
+		removeSelectedItem: function ($item) {
+			var itemId = $item.data('id'),
+				currentItem = this.collection.findWhere({
+					id: itemId
+				});
 
+			dropItems.remove(currentItem);
 		},
 		render: function () {
 			var self = this,
