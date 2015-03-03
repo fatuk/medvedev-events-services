@@ -23,7 +23,20 @@ $(function () {
 		el: '.js-drop',
 		events: {
 			'click .js-avatarClose': 'closeAvatar',
-			'click .js-dropItem': 'click'
+			'click .js-dropItem': 'click',
+			'click .js-addBtn': 'addItem'
+		},
+		addItem: function (e) {
+			var $currentTarget = $(e.currentTarget),
+				id = $currentTarget.data('id'),
+				$selectedItem = dragView.$el.find('#dragItem-' + id);
+
+			// Hide selected drop item
+			$selectedItem.hide();
+			// Save drag selected item
+			dragView.saveSelectedItem($selectedItem);
+			// Close big avatar
+			this.closeAvatar();
 		},
 		click: function (e) {
 			var $target = $(e.currentTarget),
