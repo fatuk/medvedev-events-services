@@ -51,8 +51,6 @@ $(function () {
 			$('.js-itemInfo').html(renderedInfo);
 
 			this.$el.find('.js-avatar').remove();
-			$('.js-dropItem').removeClass('active');
-			$target.addClass('active');
 
 			this.$el.append(renderedAvatar);
 			this.$el.find('.js-addBtn').hide();
