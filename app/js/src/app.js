@@ -18,7 +18,7 @@ $(function () {
 		}
 	});
 
-	// Drag view
+	// Drop view
 	App.Views.Drop = Backbone.View.extend({
 		el: '.js-drop',
 		events: {
@@ -48,7 +48,6 @@ $(function () {
 		closeAvatar: function () {
 			// Change buttons add/remove
 			$('.js-dragItem').removeClass('active');
-			$('.js-dropItem').removeClass('active');
 			// Clear big avatar
 			this.$el.find('.js-avatar').remove();
 			// Clear info
@@ -91,7 +90,7 @@ $(function () {
 			});
 		}
 	});
-	// Drag item view
+	// Drop item view
 	App.Views.DropItem = Backbone.View.extend({
 		template: $('#dragItemTemplate').html(),
 		tagName: 'li',
@@ -103,6 +102,7 @@ $(function () {
 			var rendered = Mustache.render(this.template, this.model.toJSON());
 			this.$el.html(rendered);
 			this.$el.addClass('services__item_' + this.model.get('icon'));
+			this.$el.addClass('active');
 			this.$el.attr('id', 'dropItem-' + this.model.get('id'));
 			this.$el.data('id', this.model.get('id'));
 			return this;
