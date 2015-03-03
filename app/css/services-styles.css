@@ -579,6 +579,9 @@ th {
 .services__button:hover {
   opacity: .8;
 }
+.services__short {
+  display: none;
+}
 .services__selected-avatar {
   position: absolute;
   left: 20px;

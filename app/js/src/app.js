@@ -59,6 +59,11 @@ $(function () {
 				opacity: 1,
 				visibility: 'visible'
 			});
+
+			// Hide short info if no models
+			if (this.collection.models.length === 0) {
+				appView.$el.find('.js-shortInfo').hide();
+			}
 		},
 		click: function (e) {
 			var $target = $(e.currentTarget),
@@ -87,19 +92,27 @@ $(function () {
 			$('.js-itemInfo').html('');
 		},
 		initialize: function () {
-			this.collection.on('add', function () {
+			this.collection.on('add remove', function () {
 				this.render();
 			}, this);
 		},
 		render: function () {
 			var self = this;
 
+			// Show short info
+			appView.$el.find('.js-shortInfo').show();
+			// Clear short info
+			appView.$el.find('.js-selected').html('');
+			// Clear drop area
 			this.$el.find('.js-selectedItems').html('');
 			this.collection.each(function (dropItem, index) {
 				var dropItemView = new App.Views.DropItem({
 					model: dropItem
 				});
 				this.$el.find('.js-selectedItems').append(dropItemView.$el.data('serviceName', dropItem.get('name')));
+
+				// Render short info
+				$('.js-selected').append('<li>' + dropItem.get('role') + ' ' + dropItem.get('name') + '</li>');
 			}, this);
 
 			// Drag init
@@ -192,11 +205,6 @@ $(function () {
 				visibility: 'hidden'
 			});
 			dropItems.push(currentItem);
-
-			$('.js-selected').html('');
-			dropItems.each(function (item) {
-				$('.js-selected').append('<li>' + item.get('role') + ' ' + item.get('name') + '</li>');
-			});
 		},
 		removeSelectedItem: function ($item) {
 			var itemId = $item.data('id'),
