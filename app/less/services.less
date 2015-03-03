@@ -80,28 +80,17 @@
 		cursor: pointer;
 		z-index: 1;
 
-
-		// .loop (@i) when (@i >= 0) {
-		// 	@k: (@i)-1;
-		// 	&:nth-child(@{k}) {
-		// 		@val: (@base*11+@base)*@k;
-		// 		left: @val;
-		// 	}
-		// 	.loop(@i - 1);
-		// }
-		// .loop (5);
-
-
-
-
 		&_leader {
 			.services__item-overlay {
 				background: @leader;
 			}
 			.services__item-icon {
 				background: url('../assets/img/leader.png');
-				width: 49px;
-				height: 58px;
+			}
+			&:hover {
+				.services__item-icon {
+					background: url('../assets/img/anim_ved.gif');
+				}
 			}
 		}
 		&_photographer {
@@ -110,8 +99,11 @@
 			}
 			.services__item-icon {
 				background: url('../assets/img/photographer.png');
-				width: 60px;
-				height: 43px;
+			}
+			&:hover {
+				.services__item-icon {
+					background: url('../assets/img/anim_fotogr.gif');
+				}
 			}
 		}
 		&_team-building {
@@ -120,8 +112,11 @@
 			}
 			.services__item-icon {
 				background: url('../assets/img/team-building.png');
-				width: 79px;
-				height: 79px;
+			}
+			&:hover {
+				.services__item-icon {
+					background: url('../assets/img/anim_tb.gif');
+				}
 			}
 		}
 		&_actor {
@@ -130,8 +125,11 @@
 			}
 			.services__item-icon {
 				background: url('../assets/img/actor.png');
-				width: 78px;
-				height: 44px;
+			}
+			&:hover {
+				.services__item-icon {
+					background: url('../assets/img/anim_artist.gif');
+				}
 			}
 		}
 		&_dj {
@@ -140,8 +138,11 @@
 			}
 			.services__item-icon {
 				background: url('../assets/img/dj.png');
-				width: 62px;
-				height: 62px;
+			}
+			&:hover {
+				.services__item-icon {
+					background: url('../assets/img/anim_dj.gif');
+				}
 			}
 		}
 		&_director {
@@ -150,8 +151,11 @@
 			}
 			.services__item-icon {
 				background: url('../assets/img/director.png');
-				width: 69px;
-				height: 63px;
+			}
+			&:hover {
+				.services__item-icon {
+					background: url('../assets/img/anim_dir.gif');
+				}
 			}
 		}
 		&_musician {
@@ -160,8 +164,11 @@
 			}
 			.services__item-icon {
 				background: url('../assets/img/musician.png');
-				width: 72px;
-				height: 72px;
+			}
+			&:hover {
+				.services__item-icon {
+					background: url('../assets/img/anim_music.gif');
+				}
 			}
 		}
 		&_decorator {
@@ -170,8 +177,11 @@
 			}
 			.services__item-icon {
 				background: url('../assets/img/decorator.png');
-				width: 71px;
-				height: 71px;
+			}
+			&:hover {
+				.services__item-icon {
+					background: url('../assets/img/anim_decor.gif');
+				}
 			}
 		}
 		&_coordinator {
@@ -180,8 +190,11 @@
 			}
 			.services__item-icon {
 				background: url('../assets/img/coordinator.png');
-				width: 70px;
-				height: 75px;
+			}
+			&:hover {
+				.services__item-icon {
+					background: url('../assets/img/anim_derij.gif');
+				}
 			}
 		}
 		&.click1 {
@@ -199,7 +212,51 @@
 
 		}
 		&.active {
-			outline: solid 5px orange;
+			&.services__item_actor {
+				.services__item-icon {
+					background: url('../assets/img/anim_artist.gif');
+				}
+			}
+			&.services__item_leader {
+				.services__item-icon {
+					background: url('../assets/img/anim_ved.gif');
+				}
+			}
+			&.services__item_team-building {
+				.services__item-icon {
+					background: url('../assets/img/anim_tb.gif');
+				}
+			}
+			&.services__item_photographer {
+				.services__item-icon {
+					background: url('../assets/img/anim_fotogr.gif');
+				}
+			}
+			&.services__item_dj {
+				.services__item-icon {
+					background: url('../assets/img/anim_dj.gif');
+				}
+			}
+			&.services__item_director {
+				.services__item-icon {
+					background: url('../assets/img/anim_dir.gif');
+				}
+			}
+			&.services__item_musician {
+				.services__item-icon {
+					background: url('../assets/img/anim_music.gif');
+				}
+			}
+			&.services__item_decorator {
+				.services__item-icon {
+					background: url('../assets/img/anim_decor.gif');
+				}
+			}
+			&.services__item_coordinator {
+				.services__item-icon {
+					background: url('../assets/img/anim_derij.gif');
+				}
+			}
 		}
 	}
 	&__item-inner {
@@ -231,6 +288,7 @@
 		}
 		.services__item {
 			position: absolute;
+			overflow: hidden;
 			&:nth-of-type(1) {
 				left: (@base*11+@base)*0;
 			}
@@ -312,7 +370,7 @@
 		margin: 0;
 		position: absolute;
 		left: 0;
-		bottom: @base;
+		bottom: @base/2;
 		font-size: 16px;
 		color: #fff;
 		width: 100%;
@@ -335,9 +393,12 @@
 	}
 	&__item-icon {
 		position: absolute;
-		left: 50%;
-		top: 50%;
-		transform: translate(-50%, -60%);
+		width: 100%;
+		height: 100%;
+		// margin-top: -@base/2;
+		// left: 50%;
+		// top: 50%;
+		// transform: translate(-50%, -60%);
 	}
 
 

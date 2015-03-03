@@ -269,72 +269,81 @@ th {
 }
 .services__item_leader .services__item-icon {
   background: url('../assets/img/leader.png');
-  width: 49px;
-  height: 58px;
+}
+.services__item_leader:hover .services__item-icon {
+  background: url('../assets/img/anim_ved.gif');
 }
 .services__item_photographer .services__item-overlay {
   background: #94e3e2;
 }
 .services__item_photographer .services__item-icon {
   background: url('../assets/img/photographer.png');
-  width: 60px;
-  height: 43px;
+}
+.services__item_photographer:hover .services__item-icon {
+  background: url('../assets/img/anim_fotogr.gif');
 }
 .services__item_team-building .services__item-overlay {
   background: #93e29a;
 }
 .services__item_team-building .services__item-icon {
   background: url('../assets/img/team-building.png');
-  width: 79px;
-  height: 79px;
+}
+.services__item_team-building:hover .services__item-icon {
+  background: url('../assets/img/anim_tb.gif');
 }
 .services__item_actor .services__item-overlay {
   background: #e2ba93;
 }
 .services__item_actor .services__item-icon {
   background: url('../assets/img/actor.png');
-  width: 78px;
-  height: 44px;
+}
+.services__item_actor:hover .services__item-icon {
+  background: url('../assets/img/anim_artist.gif');
 }
 .services__item_dj .services__item-overlay {
   background: #93bae2;
 }
 .services__item_dj .services__item-icon {
   background: url('../assets/img/dj.png');
-  width: 62px;
-  height: 62px;
+}
+.services__item_dj:hover .services__item-icon {
+  background: url('../assets/img/anim_dj.gif');
 }
 .services__item_director .services__item-overlay {
   background: #e2e394;
 }
 .services__item_director .services__item-icon {
   background: url('../assets/img/director.png');
-  width: 69px;
-  height: 63px;
+}
+.services__item_director:hover .services__item-icon {
+  background: url('../assets/img/anim_dir.gif');
 }
 .services__item_musician .services__item-overlay {
   background: #93d2e2;
 }
 .services__item_musician .services__item-icon {
   background: url('../assets/img/musician.png');
-  width: 72px;
-  height: 72px;
+}
+.services__item_musician:hover .services__item-icon {
+  background: url('../assets/img/anim_music.gif');
 }
 .services__item_decorator .services__item-overlay {
   background: #9593e2;
 }
 .services__item_decorator .services__item-icon {
   background: url('../assets/img/decorator.png');
-  width: 71px;
-  height: 71px;
+}
+.services__item_decorator:hover .services__item-icon {
+  background: url('../assets/img/anim_decor.gif');
 }
 .services__item_coordinator .services__item-overlay {
   background: #be93e2;
 }
 .services__item_coordinator .services__item-icon {
   background: url('../assets/img/coordinator.png');
-  width: 70px;
-  height: 75px;
+}
+.services__item_coordinator:hover .services__item-icon {
+  background: url('../assets/img/anim_derij.gif');
 }
 .services__item.click1 {
   cursor: move;
@@ -346,8 +355,32 @@ th {
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
   z-index: 10;
 }
-.services__item.active {
-  outline: solid 5px orange;
+.services__item.active.services__item_actor .services__item-icon {
+  background: url('../assets/img/anim_artist.gif');
+}
+.services__item.active.services__item_leader .services__item-icon {
+  background: url('../assets/img/anim_ved.gif');
+}
+.services__item.active.services__item_team-building .services__item-icon {
+  background: url('../assets/img/anim_tb.gif');
+}
+.services__item.active.services__item_photographer .services__item-icon {
+  background: url('../assets/img/anim_fotogr.gif');
+}
+.services__item.active.services__item_dj .services__item-icon {
+  background: url('../assets/img/anim_dj.gif');
+}
+.services__item.active.services__item_director .services__item-icon {
+  background: url('../assets/img/anim_dir.gif');
+}
+.services__item.active.services__item_musician .services__item-icon {
+  background: url('../assets/img/anim_music.gif');
+}
+.services__item.active.services__item_decorator .services__item-icon {
+  background: url('../assets/img/anim_decor.gif');
+}
+.services__item.active.services__item_coordinator .services__item-icon {
+  background: url('../assets/img/anim_derij.gif');
 }
 .services__item-inner {
   width: 110px;
@@ -386,6 +419,7 @@ th {
 }
 .services__drag .services__item {
   position: absolute;
+  overflow: hidden;
 }
 .services__drag .services__item:nth-of-type(1) {
   left: 0px;
@@ -466,7 +500,7 @@ th {
   margin: 0;
   position: absolute;
   left: 0;
-  bottom: 10px;
+  bottom: 5px;
   font-size: 16px;
   color: #fff;
   width: 100%;
@@ -489,11 +523,8 @@ th {
 }
 .services__item-icon {
   position: absolute;
-  left: 50%;
-  top: 50%;
-  -webkit-transform: translate(-50%, -60%);
-  -ms-transform: translate(-50%, -60%);
-  transform: translate(-50%, -60%);
+  width: 100%;
+  height: 100%;
 }
 .services__info {
   width: 600px;

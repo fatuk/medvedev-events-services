@@ -31,9 +31,9 @@ $(function () {
 				infoTemplate = $('#infoTemplate').html(),
 				currentItem = this.collection.findWhere({
 					id: $target.data('id')
-				});
-			renderedAvatar = Mustache.render(infoAvatarTemplate, currentItem.toJSON());
-			renderedInfo = Mustache.render(infoTemplate, currentItem.toJSON());
+				}),
+				renderedAvatar = Mustache.render(infoAvatarTemplate, currentItem.toJSON()),
+				renderedInfo = Mustache.render(infoTemplate, currentItem.toJSON());
 
 			$('.js-itemInfo').html(renderedInfo);
 
@@ -46,9 +46,13 @@ $(function () {
 			this.$el.find('.js-removeBtn').show();
 		},
 		closeAvatar: function () {
+			// Change buttons add/remove
 			$('.js-dragItem').removeClass('active');
 			$('.js-dropItem').removeClass('active');
+			// Clear big avatar
 			this.$el.find('.js-avatar').remove();
+			// Clear info
+			$('.js-itemInfo').html('');
 		},
 		initialize: function () {
 			this.collection.on('add', function () {
@@ -126,16 +130,20 @@ $(function () {
 		},
 		click: function (e) {
 			var $target = $(e.currentTarget),
-				infoTemplate = $('#selectedItemAvatarTemplate').html(),
+				infoAvatarTemplate = $('#selectedItemAvatarTemplate').html(),
+				infoTemplate = $('#infoTemplate').html(),
 				currentItem = this.collection.findWhere({
 					id: $target.data('id')
 				}),
-				rendered = Mustache.render(infoTemplate, currentItem.toJSON());
+				renderedAvatar = Mustache.render(infoAvatarTemplate, currentItem.toJSON()),
+				renderedInfo = Mustache.render(infoTemplate, currentItem.toJSON());
+
+			$('.js-itemInfo').html(renderedInfo);
 
 			$('.js-drop').find('.js-avatar').remove();
 			$('.js-dragItem').removeClass('active');
 			$target.addClass('active');
-			$('.js-drop').append(rendered);
+			$('.js-drop').append(renderedAvatar);
 			$('.js-drop').find('.js-removeBtn').hide();
 			$('.js-drop').find('.js-addBtn').show();
 
@@ -206,6 +214,13 @@ $(function () {
 			this.$el.attr('id', 'dragItem-' + this.model.get('id'));
 			this.$el.data('id', this.model.get('id'));
 			return this;
+		}
+	});
+	// Avatar view
+	App.Views.Avatar = Backbone.View.extend({
+		el: '.js-avatar',
+		events: {
+			'click .js-addBtn': 'ч'
 		}
 	});
 
