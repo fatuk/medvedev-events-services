@@ -352,7 +352,6 @@ th {
 }
 .services__item.pep-active {
   cursor: move;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
   z-index: 10;
 }
 .services__item.active.services__item_actor .services__item-icon {
@@ -538,7 +537,6 @@ th {
   left: 10px;
   right: 10px;
   bottom: 5px;
-  box-shadow: 0 0 8px #8ca3da;
 }
 .services__form-row {
   display: inline-block;
