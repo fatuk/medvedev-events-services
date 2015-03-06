@@ -6,7 +6,7 @@
 @leader: #93DFE2;
 @photo: #94E3E2;
 @team: #93E29A;
-@actor: #E2BA93;
+@artist: #E2BA93;
 @dj: #93BAE2;
 @director: #E2E394;
 @musician: #93D2E2;
@@ -62,6 +62,7 @@
 	}
 	&__list {
 		position: absolute;
+		height: @base*35;
 		left: @base;
 		top: @base;
 		list-style: none;
@@ -119,9 +120,9 @@
 				}
 			}
 		}
-		&_actor {
+		&_artist {
 			.services__item-overlay {
-				background: @actor;
+				background: @artist;
 			}
 			.services__item-icon {
 				background: url('../assets/img/actor.png');
@@ -212,7 +213,7 @@
 
 		}
 		&.active {
-			&.services__item_actor {
+			&.services__item_artist {
 				.services__item-icon {
 					background: url('../assets/img/anim_artist.gif');
 				}
