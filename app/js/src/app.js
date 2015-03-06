@@ -29,9 +29,6 @@ $(function () {
 			'mouseup .js-dropItem:not(.pep-start)': 'click',
 			'mouseout .js-dropItem': 'mouseout'
 		},
-		test: function () {
-			console.log('test');
-		},
 		addItem: function (e) {
 			var $currentTarget = $(e.currentTarget),
 				id = $currentTarget.data('id'),
@@ -130,6 +127,9 @@ $(function () {
 			// Drag init
 			$('.js-dropItem').pep({
 				droppable: '.js-drag',
+				drag: function (event, object) {
+					appView.$el.find('.js-selectedItems').addClass('dragging');
+				},
 				stop: function (event, object) {
 					var $item = $(object.el),
 						intersected = this.activeDropRegions.length,
@@ -142,6 +142,9 @@ $(function () {
 							opacity: 1
 						});
 					}
+
+					// Remove dragging class
+					appView.$el.find('.js-selectedItems').removeClass('dragging');
 				},
 				revert: true,
 				debug: false,

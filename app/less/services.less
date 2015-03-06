@@ -70,6 +70,9 @@
 		margin: 0;
 		.clearfix();
 		z-index: 1;
+		&.dragging {
+			z-index: 10;
+		}
 	}
 	&__item {
 		width: @base*11;
@@ -198,15 +201,8 @@
 				}
 			}
 		}
-		&.click1 {
-			cursor: move;
-			position: relative;
-			z-index: 10000 !important;
-		}
 		&.pep-active {
 			cursor: move;
-			// position: relative;
-			// box-shadow: 0 0 5px rgba(0,0,0,.5);
 			z-index: 10;
 		}
 		&.pep-ease {

@@ -255,6 +255,9 @@ th {
 .services__list:after {
   clear: both;
 }
+.services__list.dragging {
+  z-index: 10;
+}
 .services__item {
   width: 110px;
   height: 110px;
@@ -345,11 +348,6 @@ th {
 }
 .services__item_coordinator:hover .services__item-icon {
   background: url('../assets/img/anim_derij.gif');
-}
-.services__item.click1 {
-  cursor: move;
-  position: relative;
-  z-index: 10000 !important;
 }
 .services__item.pep-active {
   cursor: move;
