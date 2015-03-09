@@ -13,8 +13,22 @@ $(function () {
 	// Main view
 	App.Views.App = Backbone.View.extend({
 		el: '.js-services',
+		bigPartyTemplate: $('#bigPartyTemplate').html(),
+		bigPartyOpen: function () {
+			$('body').append(this.bigPartyTemplate);
+			$('body').find('.js-bigPartyModal, .js-bigPartyOverlay').fadeIn('fast');
+		},
+		bigPartyClose: function () {
+			$('body').find('.js-bigPartyModal, .js-bigPartyOverlay').fadeOut('fast', function () {
+				$('body').find('.js-bigPartyModal, .js-bigPartyOverlay').remove();
+				$.pep.toggleAll(true);
+			});
+		},
 		initialize: function () {
-
+			var self = this;
+			$('body').on('click', '.js-bigPartyCloseBtn, .js-bigPartyOverlay', function () {
+				self.bigPartyClose();
+			});
 		}
 	});
 
@@ -25,9 +39,7 @@ $(function () {
 			'click .js-avatarClose': 'closeAvatar',
 			'click .js-addBtn': 'addItem',
 			'click .js-removeBtn': 'removeItem',
-			'mousedown .js-dropItem': 'mousedown',
-			'mouseup .js-dropItem:not(.pep-start)': 'click',
-			'mouseout .js-dropItem': 'mouseout'
+			'mouseup .js-dropItem:not(.pep-start)': 'click'
 		},
 		addItem: function (e) {
 			var $currentTarget = $(e.currentTarget),
@@ -66,12 +78,6 @@ $(function () {
 			if (this.collection.models.length === 0) {
 				appView.$el.find('.js-shortInfo').hide();
 			}
-		},
-		mousedown: function (e) {
-			var $target = $(e.currentTarget);
-		},
-		mouseup: function (e) {
-			var $target = $(e.currentTarget);
 		},
 		click: function (e) {
 			var $target = $(e.currentTarget),
@@ -114,6 +120,7 @@ $(function () {
 			appView.$el.find('.js-selected').html('');
 			// Clear drop area
 			this.$el.find('.js-selectedItems').html('');
+
 			this.collection.each(function (dropItem, index) {
 				var dropItemView = new App.Views.DropItem({
 					model: dropItem
@@ -136,11 +143,17 @@ $(function () {
 						id = $item.data('id');
 
 					if (intersected) {
+						// Remove item
 						dragView.removeSelectedItem($item);
+						// Show item in drag area
 						dragView.$el.find('#dragItem-' + id).css({
 							visibility: 'visible',
 							opacity: 1
 						});
+						// Hide short info if no models
+						if (self.collection.models.length === 0) {
+							appView.$el.find('.js-shortInfo').hide();
+						}
 					}
 
 					// Remove dragging class
@@ -175,9 +188,10 @@ $(function () {
 	App.Views.Drag = Backbone.View.extend({
 		el: '.js-drag',
 		events: {
-			'mousedown .js-dragItem': 'mousedown',
-			'mouseup .js-dragItem:not(.pep-start)': 'click',
-			'mouseout .js-dragItem': 'mouseout'
+			// 'mousedown .js-dragItem': 'mousedown',
+			'mouseup .js-dragItem:not(.pep-start)': 'click'
+			// 'mouseup .js-dragItem': 'click'
+			// 'mouseout .js-dragItem': 'mouseout'
 		},
 		initialize: function () {
 			this.collection.on('reset', function () {
@@ -250,12 +264,26 @@ $(function () {
 			// Drag init
 			$('.js-dragItem').pep({
 				droppable: '.js-drop',
+				drag: function () {
+
+				},
 				stop: function (event, object) {
 					var $item = $(object.el),
 						intersected = this.activeDropRegions.length;
 
+					// Check max models count
+					if (dropView.collection.models.length === 2) {
+						$.pep.toggleAll(false);
+						console.log('Yeahooo! Amazing party!');
+						appView.bigPartyOpen();
+						return false;
+					}
+
 					if (intersected) {
 						self.saveSelectedItem($item);
+
+						// Close avatar
+						dropView.closeAvatar();
 					}
 
 				},

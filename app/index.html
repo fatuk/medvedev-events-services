@@ -78,6 +78,28 @@
 		</div>
 	</div>
 
+	<!-- Big party template -->
+	<script
+		type="text/mustache"
+		id="bigPartyTemplate">
+		<div class="services__modal hide js-bigPartyModal">
+			<div class="services__modal-inner">
+				<p class="services__modal-text">
+					Вы точно хотете закатить <br> такую грандиозную вечеринку?
+				</p>
+				<div class="services__modal-form">
+					<form action="#">
+						<input type="phone" name="phone" class="services__input services__modal-input" id="phone" placeholder="Укажите ваш номер телефона">
+						<input type="submit" value="Позвоните мне!" class="services__button">
+					</form>
+				</div>
+			</div>
+			<!-- Close button -->
+			<i class="services__modal-close js-bigPartyCloseBtn"></i>
+		</div>
+		<div class="services__modal-overlay js-bigPartyOverlay"></div>
+	</script>
+
 	<!-- Info template -->
 	<script
 		type="text/mustache"
@@ -97,7 +119,7 @@
 		type="text/mustache"
 		id="selectedItemAvatarTemplate">
 		<div class="services__selected-avatar js-avatar">
-		{{title}}
+		{{custom_fields.title}}
 			<div class="services__selected-img" style="background: url({{thumb}}?{{id}});-webkit-background-size: cover;background-size: cover;"></div>
 			<div class="services__selected-controls">
 				<!-- Add button -->
@@ -128,7 +150,7 @@
 			<div class="services__item-overlay"></div>
 			<i class="services__item-icon"></i>
 			<div class="services__item-title">
-				{{role}}
+				{{custom_fields.role}}
 			</div>
 		</div>
 	</script>
