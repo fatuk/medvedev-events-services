@@ -188,10 +188,7 @@ $(function () {
 	App.Views.Drag = Backbone.View.extend({
 		el: '.js-drag',
 		events: {
-			// 'mousedown .js-dragItem': 'mousedown',
 			'mouseup .js-dragItem:not(.pep-start)': 'click'
-			// 'mouseup .js-dragItem': 'click'
-			// 'mouseout .js-dragItem': 'mouseout'
 		},
 		initialize: function () {
 			this.collection.on('reset', function () {
@@ -272,7 +269,7 @@ $(function () {
 						intersected = this.activeDropRegions.length;
 
 					// Check max models count
-					if (dropView.collection.models.length === 2) {
+					if (dropView.collection.models.length === 9) {
 						$.pep.toggleAll(false);
 						console.log('Yeahooo! Amazing party!');
 						appView.bigPartyOpen();
