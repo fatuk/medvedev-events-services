@@ -37,10 +37,19 @@
 					<!-- Form -->
 					<div class="services__form">
 						<div class="services__form-row">
-							<form action="#">
-								<input type="hidden" class="services__input" id="servicesList" name="services-list">
-								<input type="email" class="services__input" id="email" name="email" placeholder="Укажите Ваш e-mail">
-								<input type="submit" class="services__button" value="Пригласить">
+							<!-- medvedev_event@mail.ru -->
+							<form name="" action="/friends" method="post" id="friendsForm">
+								<div style="display: none;">
+									<input type="hidden" name="_wpcf7" value="1391" />
+									<input type="hidden" name="_wpcf7_version" value="4.1" />
+									<input type="hidden" name="_wpcf7_locale" value="ru_RU" />
+									<input type="hidden" name="_wpcf7_unit_tag" value="wpcf7-f1391-p1384-o2" />
+									<input type="hidden" name="_wpnonce" value="6e313f87a6" />
+								</div>
+								<input type="hidden" class="services__input wpcf7-form-control wpcf7-text" id="servicesList" name="text-973">
+								<input type="email" class="services__input wpcf7-form-control wpcf7-text wpcf7-email wpcf7-validates-as-required wpcf7-validates-as-email" id="email" name="your-email" placeholder="Укажите Ваш e-mail">
+								<!-- <input type="submit" class="services__button" value="Пригласить"> -->
+								<input type="submit" value="Отправить" class="services__button wpcf7-form-control wpcf7-submit">
 							</form>
 						</div>
 					</div>
@@ -63,20 +72,33 @@
 					Выбраны:
 				</h3>
 				<ul class="services__short-list js-selected">
-					<!-- <li class="services__short-item">
-						<a href="#" class="services__short-link">
-							Dj Алексей Морозов
-						</a>
-					</li>
-					<li class="services__short-item">
-						<a href="#" class="services__short-link">
-							Актер Николай Абдулов
-						</a>
-					</li> -->
+
 				</ul>
 			</div>
 		</div>
 	</div>
+
+	<!-- Message template -->
+	<script
+		type="text/mustache"
+		id="bigPartyTemplate">
+		<div class="services__modal hide js-bigPartyModal">
+			<div class="services__modal-inner">
+				<p class="services__modal-text">
+					Вы точно хотете закатить <br> такую грандиозную вечеринку?
+				</p>
+				<div class="services__modal-form">
+					<form action="#">
+						<input type="phone" name="phone" class="services__input services__modal-input" id="phone" placeholder="Укажите ваш номер телефона">
+						<input type="submit" value="Заказать звонок" class="services__button">
+					</form>
+				</div>
+			</div>
+			<!-- Close button -->
+			<i class="services__modal-close js-bigPartyCloseBtn"></i>
+		</div>
+		<div class="services__modal-overlay js-bigPartyOverlay"></div>
+	</script>
 
 	<!-- Big party template -->
 	<script
@@ -90,7 +112,7 @@
 				<div class="services__modal-form">
 					<form action="#">
 						<input type="phone" name="phone" class="services__input services__modal-input" id="phone" placeholder="Укажите ваш номер телефона">
-						<input type="submit" value="Позвоните мне!" class="services__button">
+						<input type="submit" value="Заказать звонок" class="services__button">
 					</form>
 				</div>
 			</div>

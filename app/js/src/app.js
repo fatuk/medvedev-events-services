@@ -39,7 +39,31 @@ $(function () {
 			'click .js-avatarClose': 'closeAvatar',
 			'click .js-addBtn': 'addItem',
 			'click .js-removeBtn': 'removeItem',
-			'mouseup .js-dropItem:not(.pep-start)': 'click'
+			'mouseup .js-dropItem:not(.pep-start)': 'click',
+			'submit #friendsForm': 'sendFriends'
+		},
+		sendFriends: function (e) {
+			e.preventDefault();
+
+			var $form = $(e.currentTarget),
+				dataArray = $form.serializeArray(),
+				url = $form.attr('action');
+
+			$.ajax({
+				url: url,
+				type: 'POST',
+				data: dataArray,
+			})
+				.done(function () {
+					console.log("success");
+				})
+				.fail(function () {
+					console.log("error");
+				})
+				.always(function () {
+					console.log("complete");
+				});
+
 		},
 		addItem: function (e) {
 			var $currentTarget = $(e.currentTarget),
@@ -112,7 +136,8 @@ $(function () {
 			}, this);
 		},
 		render: function () {
-			var self = this;
+			var self = this,
+				emailText = '';
 
 			// Show short info
 			appView.$el.find('.js-shortInfo').show();
@@ -125,11 +150,20 @@ $(function () {
 				var dropItemView = new App.Views.DropItem({
 					model: dropItem
 				});
+				if (index + 1 === self.collection.models.length) {
+					emailText += dropItem.get('title');
+				} else {
+					emailText += dropItem.get('title') + ', ';
+				}
+
 				this.$el.find('.js-selectedItems').append(dropItemView.$el.data('serviceName', dropItem.get('name')));
 
 				// Render short info
 				$('.js-selected').append('<li>' + dropItem.get('title') + '</li>');
 			}, this);
+
+
+			appView.$el.find('#servicesList').val(emailText);
 
 			// Drag init
 			$('.js-dropItem').pep({
@@ -188,10 +222,7 @@ $(function () {
 	App.Views.Drag = Backbone.View.extend({
 		el: '.js-drag',
 		events: {
-			// 'mousedown .js-dragItem': 'mousedown',
 			'mouseup .js-dragItem:not(.pep-start)': 'click'
-			// 'mouseup .js-dragItem': 'click'
-			// 'mouseout .js-dragItem': 'mouseout'
 		},
 		initialize: function () {
 			this.collection.on('reset', function () {
@@ -272,9 +303,8 @@ $(function () {
 						intersected = this.activeDropRegions.length;
 
 					// Check max models count
-					if (dropView.collection.models.length === 2) {
+					if (dropView.collection.models.length === 9) {
 						$.pep.toggleAll(false);
-						console.log('Yeahooo! Amazing party!');
 						appView.bigPartyOpen();
 						return false;
 					}
