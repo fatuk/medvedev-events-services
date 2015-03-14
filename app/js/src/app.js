@@ -26,7 +26,7 @@ $(function () {
 		},
 		initialize: function () {
 			var self = this;
-			$('body').on('click', '.js-bigPartyCloseBtn, .js-bigPartyOverlay', function () {
+			$('body').on('click touchend', '.js-bigPartyCloseBtn, .js-bigPartyOverlay', function () {
 				self.bigPartyClose();
 			});
 		}
@@ -40,7 +40,11 @@ $(function () {
 			'click .js-addBtn': 'addItem',
 			'click .js-removeBtn': 'removeItem',
 			'mouseup .js-dropItem:not(.pep-start)': 'click',
+			'touchend .js-dropItem:not(.pep-start)': 'click',
 			'submit #friendsForm': 'sendFriends'
+		},
+		touch: function () {
+			alert('tap');
 		},
 		sendFriends: function (e) {
 			e.preventDefault();
@@ -167,7 +171,7 @@ $(function () {
 
 			// Drag init
 			$('.js-dropItem').pep({
-				droppable: '.js-drag',
+				droppable: '.js-dragEmpty',
 				drag: function (event, object) {
 					appView.$el.find('.js-selectedItems').addClass('dragging');
 				},
@@ -222,7 +226,8 @@ $(function () {
 	App.Views.Drag = Backbone.View.extend({
 		el: '.js-drag',
 		events: {
-			'mouseup .js-dragItem:not(.pep-start)': 'click'
+			'mouseup .js-dragItem:not(.pep-start)': 'click',
+			'touchend .js-dragItem:not(.pep-start)': 'click'
 		},
 		initialize: function () {
 			this.collection.on('reset', function () {
